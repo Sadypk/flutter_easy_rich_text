@@ -453,13 +453,24 @@ class EasyRichText extends StatelessWidget {
         if (null != pattern.matchBuilder && match is RegExpMatch) {
           inlineSpan = pattern.matchBuilder!(context, match);
         } else if (urlType != null) {
-          inlineSpan = TextSpan(
-            text: str,
-            recognizer: tapGestureRecognizerForUrls(str, urlType),
-            style: pattern.style == null
-                ? DefaultTextStyle.of(context).style
-                : pattern.style,
+          inlineSpan = WidgetSpan(
+            child: GestureDetector(
+              // onTap: tapGestureRecognizerForUrls(str, urlType),
+              child: Text(
+                str,
+                style: pattern.style == null
+                    ? DefaultTextStyle.of(context).style
+                    : pattern.style,
+              ),
+            ),
           );
+          // inlineSpan = TextSpan(
+          //   text: str,
+          //   recognizer: tapGestureRecognizerForUrls(str, urlType),
+          //   style: pattern.style == null
+          //       ? DefaultTextStyle.of(context).style
+          //       : pattern.style,
+          // );
         } else if (pattern.superScript && !selectable) {
           //change the target string to superscript
           inlineSpan = WidgetSpan(
@@ -489,13 +500,24 @@ class EasyRichText extends StatelessWidget {
             ),
           );
         } else {
-          inlineSpan = TextSpan(
-            text: str,
-            recognizer: pattern.recognizer,
-            style: pattern.style == null
-                ? DefaultTextStyle.of(context).style
-                : pattern.style,
+          inlineSpan = WidgetSpan(
+            child: GestureDetector(
+              // onTap: pattern.recognizer,
+              child: Text(
+                str,
+                style: pattern.style == null
+                    ? DefaultTextStyle.of(context).style
+                    : pattern.style,
+              ),
+            ),
           );
+          // inlineSpan = TextSpan(
+          //   text: str,
+          //   recognizer: pattern.recognizer,
+          //   style: pattern.style == null
+          //       ? DefaultTextStyle.of(context).style
+          //       : pattern.style,
+          // );
         }
       } else {
         inlineSpan = TextSpan(
