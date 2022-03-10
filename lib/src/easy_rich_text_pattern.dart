@@ -53,10 +53,14 @@ class EasyRichTextPattern {
   ///default match all
   final dynamic matchOption;
 
+  ///key for the pattern
+  final Key? patternKey;
+
   final EasyRichTextMatchBuilder? matchBuilder;
 
   EasyRichTextPattern({
     Key? key,
+    this.patternKey,
     required this.targetString,
     this.stringBeforeTarget = '',
     this.stringAfterTarget = '',
@@ -87,23 +91,24 @@ class EasyRichTextPattern {
     recognizer,
     hasSpecialCharacters,
     matchOption,
+    patternKey,
   }) {
     return EasyRichTextPattern(
-      targetString: targetString ?? this.targetString,
-      stringBeforeTarget: stringBeforeTarget ?? this.stringBeforeTarget,
-      stringAfterTarget: stringAfterTarget ?? this.stringAfterTarget,
-      matchWordBoundaries: matchWordBoundaries ?? this.matchWordBoundaries,
-      matchLeftWordBoundary:
-          matchLeftWordBoundary ?? this.matchLeftWordBoundary,
-      matchRightWordBoundary:
-          matchRightWordBoundary ?? this.matchRightWordBoundary,
-      superScript: superScript ?? this.superScript,
-      subScript: subScript ?? this.subScript,
-      style: style ?? this.style,
-      urlType: urlType ?? this.urlType,
-      recognizer: recognizer ?? this.recognizer,
-      hasSpecialCharacters: hasSpecialCharacters ?? this.hasSpecialCharacters,
-      matchOption: matchOption ?? this.matchOption,
-    );
+        targetString: targetString ?? this.targetString,
+        stringBeforeTarget: stringBeforeTarget ?? this.stringBeforeTarget,
+        stringAfterTarget: stringAfterTarget ?? this.stringAfterTarget,
+        matchWordBoundaries: matchWordBoundaries ?? this.matchWordBoundaries,
+        matchLeftWordBoundary:
+            matchLeftWordBoundary ?? this.matchLeftWordBoundary,
+        matchRightWordBoundary:
+            matchRightWordBoundary ?? this.matchRightWordBoundary,
+        superScript: superScript ?? this.superScript,
+        subScript: subScript ?? this.subScript,
+        style: style ?? this.style,
+        urlType: urlType ?? this.urlType,
+        recognizer: recognizer ?? this.recognizer,
+        hasSpecialCharacters: hasSpecialCharacters ?? this.hasSpecialCharacters,
+        matchOption: matchOption ?? this.matchOption,
+        patternKey: patternKey ?? this.patternKey);
   }
 }

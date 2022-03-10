@@ -513,6 +513,7 @@ class EasyRichText extends StatelessWidget {
                 : defaultStyle,
             children: textSpanList),
         scrollPhysics: scrollPhysics,
+        key: key,
         toolbarOptions: toolbarOptions,
         maxLines: maxLines,
         strutStyle: strutStyle,
@@ -544,6 +545,7 @@ class EasyRichText extends StatelessWidget {
                 ? DefaultTextStyle.of(context).style
                 : defaultStyle,
             children: textSpanList),
+        key: key,
         locale: locale,
         maxLines: maxLines,
         overflow: overflow,
